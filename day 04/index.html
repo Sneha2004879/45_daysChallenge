@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skill Showcase</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #8473d0, #094048);
+      color: #e7e6e6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(49, 10, 110, 0.2);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+    .skill-card {
+      background: rgba(50, 1, 7, 0.2);
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.2s ease-in-out;
+    }
+    .skill-card:hover {
+      transform: scale(1.05);
+      background: rgba(176, 2, 2, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🚀 My Skills</h2>
+    <div class="skills-grid" id="skill-grid"></div>
+  </div>
+
+  <script>
+    const skills = [
+      { name: "HTML", proficiency: "Advance" },
+      { name: "CSS", proficiency: "Intermediate" },
+      { name: "JavaScript", proficiency: "Intermediated" },
+      
+    ];
+
+    const formattedSkills = skills.map(skill => `${skill.name} (${skill.proficiency})`);
+
+    const grid = document.getElementById("skill-grid");
+    formattedSkills.forEach(skill => {
+      const div = document.createElement("div");
+      div.className = "skill-card";
+      div.textContent = skill;
+      grid.appendChild(div);
+    });
+  </script>
+</body>
+</html>
