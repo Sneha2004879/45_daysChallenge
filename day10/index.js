@@ -12,7 +12,7 @@ const dbName = "myDatabase";
 
 async function main() {
   await client.connect();
-  console.log("✅ Connected to MongoDB");
+  console.log("Connected to MongoDB");
 
   const db = client.db(dbName);
   const projects = db.collection("projects");
