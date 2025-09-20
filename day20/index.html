@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Challenge - Day 20</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+        margin: 0;
+        padding: 40px 20px;
+      }
+      h1 {
+        color: #2c3e50;
+        margin-bottom: 40px;
+        font-size: 2.5rem;
+      }
+      .projects {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+      }
+      .card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        width: 280px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 6px;
+        width: 100%;
+        background: linear-gradient(90deg, #42a5f5, #ab47bc, #ef5350);
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+      .card h3 {
+        margin-top: 10px;
+        color: #37474f;
+      }
+      .card p {
+        color: #555;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function ProjectCard({ title, description }) {
+        return (
+          <div className="card">
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+        );
+      }
+
+      function App() {
+        const projects = [
+          {
+            title: "Portfolio Website",
+            description: "A personal portfolio built with React showcasing my skills and projects."
+          },
+          {
+            title: "Calculator",
+            description: "A simple calculator app that performs basic arithmetic operations."
+          },
+          {
+            title: "Weather App",
+            description: "A React app that fetches real-time weather data using an API."
+          }
+        ];
+
+        return (
+          <div style={{ textAlign: "center" }}>
+            <h1>✨ My Projects ✨</h1>
+            <div className="projects">
+              {projects.map((p, i) => (
+                <ProjectCard key={i} title={p.title} description={p.description} />
+              ))}
+            </div>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
